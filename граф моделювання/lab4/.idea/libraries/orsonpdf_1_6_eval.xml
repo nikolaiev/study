@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="orsonpdf-1.6-eval">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/chard3D/lib/orsonpdf-1.6-eval.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,5 @@
+$ export PATH=$PATH:/usr/local/hadoop-2.7.3/bin
+$ hadoop
+#cd /usr/home/Documents
+$ rm -r Projects/output/
+$ hadoop jar Files/hadoop-mapreduce-examples-2.7.3.jar wordcount Projects/input/test.txt Projects/output/

@@ -1,0 +1,16 @@
+Connection-specific DNS Suffix: kpi.ua
+Description: Realtek PCIe GBE Family Controller
+Physical Address: ‎B4-B5-2F-76-DA-A6
+DHCP Enabled: Yes
+IPv4 Address: 77.47.168.21
+IPv4 Subnet Mask: 255.255.255.0
+Lease Obtained: Tuesday, November 1, 2016 03:59:53 PM
+Lease Expires: Wednesday, November 2, 2016 03:52:12 PM
+IPv4 Default Gateway: 77.47.168.1
+IPv4 DHCP Server: 77.47.136.200
+IPv4 DNS Servers: 77.47.128.130, 77.47.128.131
+IPv4 WINS Server: 
+NetBIOS over Tcpip Enabled: Yes
+Link-local IPv6 Address: fe80::8947:41da:2c89:f868%7
+IPv6 Default Gateway: 
+IPv6 DNS Server: 

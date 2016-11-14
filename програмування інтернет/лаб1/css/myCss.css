@@ -1,0 +1,20 @@
+.myTr td{
+	background: yellow;
+}
+
+.myTd{
+	margin: auto;
+	border: '#ffffff';
+	border-style: solid;
+	width: 30px;
+}
+.myTrUp{
+	background: #7FFF00;
+}
+span{
+	display:table;
+	margin:0 auto;
+}
+table{
+	margin:0 auto;	
+}

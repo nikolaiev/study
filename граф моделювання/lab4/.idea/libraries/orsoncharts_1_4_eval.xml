@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="orsoncharts-1.4-eval">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/chard3D/lib/orsoncharts-1.4-eval.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
