@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/myCSS.css">
+</head>
+<body>
+
+    <!--div id="dropzone">
+        <div  class="dropzone dz-clickable" id="DropzoneElementId">
+            <div class="dz-message">Drop files here or click to upload.                
+            </div>
+        </div>
+    </div-->
+    
+	<span id="add" class="fileinput-button btn btn-xs btn-success dz-clickable">
+		<i class="icon-upload"></i>Открыть файл
+	</span>
+	
+
+	<div class="dropzone dz-clickable" id="DropzoneElementId"> 
+		<div class="dz-default dz-message" data-dz-message="hello!"> 
+			<span style="color:black;">Для загрузки перетащите файлы сюда</span> 
+		</div> 
+	</div>
+	
+	<div class="table table-striped" id="previews"> 
+		<div id="template" class="file-row"></div>    
+	 </div>
+
+	<input id="start" type="button" name="" value="ProcessFile">
+	<br>
+	<textarea id="result">
+    	
+    </textarea>
+    <div id="download"></div>
+    <a href="" id="a">click here to download your file</a>
+
+
+
+</body>
+</html>
+
+<script src="./js/dropzone.js"></script>
+<script type="text/javascript" src="./js/decoder.js"></script>
