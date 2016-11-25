@@ -171,7 +171,7 @@ var items = [];//changing when load image and destroy
 		//TODO upload file back!
 		console.log(response)
 		text=response.data
-		if(response.ext=="txt")
+		if(response.ext=="txt"||response.ext=="err")
 			document.getElementById("result").value = response.data;
 		download(response.data,'myfilename.txt', 'text/plain')
 

@@ -1,0 +1,4 @@
+installutil "C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ExtraService\ExtraService\bin\Debug\ExtraService.exe"
+net start WCFWindowsServiceSample
+wcftestclient http://localhost:8082/ServiceModelSamples/service
+installutil /u "C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ExtraService\ExtraService\bin\Debug\ExtraService.exe"

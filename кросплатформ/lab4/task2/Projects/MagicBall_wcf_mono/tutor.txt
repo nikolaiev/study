@@ -1,0 +1,9 @@
+/*LINUX FROM THIS DIRECTORY*/
+
+	sudo mono Host/bin/Debug/Host.exe	
+	sudo mono Client/bin/Debug/Client.exe 	
+
+/*WINDOWS FROM ANY DIRECTORY (MONO CONSOLE)*/
+
+	C:\Users\Vlad\Documents\Projects\MagicBall_wcf_mono\Host\bin\Debug\Host.exe	
+	C:\Users\Vlad\Documents\Projects\MagicBall_wcf_mono\Client\bin\Debug\Client.exe

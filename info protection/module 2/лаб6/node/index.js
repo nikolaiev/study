@@ -37,12 +37,26 @@ app.post('/decript',multipartMiddleware,(req,res)=>{
 		var buff=new Buffer(data)
 		var str=buff.toString('UTF-8');
 		var enc=new Encoder(alphabet,encType);
-		var result=enc.decode(str);
+
+		try{
+			var result=enc.encode(str,true);// передаємо напрямок кодування
+		}
+		catch(e){
+				//при невідомому символі
+				var data={};
+				data.data=e.toString();
+				data.ext='err';//можно помянять
+				res.send(data)		
+				fs.unlink(req.files.file.path);
+				return;
+		}
+
 		var data={};
 		data.data=result;
 		data.ext=fileExt;		
 		//res.sendFile(req.files.file.path)
-		res.send(data)
+		res.send(data)		
+		fs.unlink(req.files.file.path);
 	});
 });
 
@@ -50,31 +64,47 @@ app.post('/decript',multipartMiddleware,(req,res)=>{
 //encription
 app.post('/encript',multipartMiddleware,(req,res)=>{
 	
-	var encType=req.body.enctype;
-	var alphabet=req.body.alphabet;
-	//TODO разветвление
-	console.log(req.files);
-	var fileExt=req.files.file.originalFilename.split('.').pop();
-	console.log(fileExt);
+	var encType=req.body.enctype;// тип шифрування
+	var alphabet=req.body.alphabet;//тип алфавіту
+	var fileExt=req.files.file.originalFilename.split('.').pop();//розширення вхідного файлу
+
 	fs.readFile(req.files.file.path, function (err, data) {
 		var buff=new Buffer(data)
 		var str=buff.toString('UTF-8');
 		var enc=new Encoder(alphabet,encType);
-		var result=enc.encode(str);
+		try{
+			var result=enc.encode(str,true);// передаємо напрямок кодування
+		}
+		catch(e){
+				//при невідомому символі
+				var data={};
+				data.data=e.toString();
+				data.ext='err';//можно помянять
+				res.send(data)		
+				fs.unlink(req.files.file.path);
+				return;
+		}
 		var data={};
 		data.data=result;
 		data.ext=fileExt;
 		res.send(data)
+		fs.unlink(req.files.file.path);
 	});
 });
 
 function Encoder(alph,encType){
-	alphabet=[];
-	t=0;
-	key=0;
-	size=0;
+	alphabet=[];//алфавіт
+	t=0;//допоміжна змінна
+	key=0;//допоміжна змінна
+	size=0;//розмір алфавіту
 	
-	this.encode=function(str){
+	/**
+		функція кодування/ декодування
+
+		str - вхідні дані (текст)
+		decode - флаг декодування	 	
+	*/
+	this.encode=function(str,decode){
 		var result="";
 		if(encType=="linear"||encType=="nonlinear"){			
 			for(var i=0;i<str.length;i++){
@@ -86,9 +116,15 @@ function Encoder(alph,encType){
 				
 				var index=alphabet.indexOf(str[i]);
 				if(index==-1){
-					throw new Error('bad symmbol!')
+					throw new Error('Unknown symmbol! '+ str[i])
 				}
 
+				//перевірка шифратор чи дешифратор
+				//методи відрізняються лише знаком в формулі
+				//(index+key)%size чи (index-key)%size
+				if(decode){
+					key=-key;
+				}
 				var resultInd=(index+key)%size;
 				if(resultInd>=size){
 					resultInd=resultInd%size;
@@ -138,66 +174,8 @@ function Encoder(alph,encType){
 		return result;
 	}
 
-	this.decode=function(str){
-		var result="";
-		if(encType=="linear"||encType=="nonlinear"){			
-			for(var i=0;i<str.length;i++){
-				var t=i+1;//порядковий номер в повідомленні
-				if(encType=="linear")
-					var key=3*t+1;
-				else if(encType=="nonlinear")
-					var key=-11*t*t+121*t-117;
-				
-				var index=alphabet.indexOf(str[i]);
 
-				var resultInd=(index-key)%size;
-				if(resultInd>=size){
-					resultInd=resultInd%size;
-				}
-				else if(resultInd<0){
-					while(resultInd<0){
-						resultInd+=size;
-					}
-				}
-				result+=alphabet[resultInd];
-			}
-
-		} 
-		else if(encType=="string"){
-			var slogan;
-			if(alph=="english")
-				slogan="super private string";
-			else if(alph=="russian"){
-				slogan="супер приватная строка";
-			}
-			for(var i=0;i<str.length;i++){
-				var t=i+1;//порядковий номер в повідомленні
-				if(t>=slogan.size){
-					t=t%slogan.size
-				}
-
-				var key=alphabet.indexOf(slogan[t]);
-				var index=alphabet.indexOf(str[i]);
-
-				var resultInd=(index-key)%size;
-				if(resultInd>=size){
-					resultInd=resultInd%size;
-				}
-				else if(resultInd<0){
-					while(resultInd<0){
-						resultInd+=size;
-					}
-				}
-				result+=alphabet[resultInd];
-			}
-
-		}
-		else{
-			throw new Error(1);
-		}
-		return result;
-	}
-
+	//ЗАПОВНЕННЯ АЛФАВІТУ
 	if(alph=="english"){
 		for(var i='A';;i=nextChar(i)){
 			alphabet.push(i);
@@ -222,6 +200,9 @@ function Encoder(alph,encType){
 	size=alphabet.length;
 	//console.log(this.alphabet);
 
+	/**
+		Отримуємо символ з кодом більшим на 1
+	*/
 	function nextChar(c) {
 	    return String.fromCharCode(c.charCodeAt(0) + 1);
 	}
