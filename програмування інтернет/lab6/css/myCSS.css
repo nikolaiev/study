@@ -1,0 +1,156 @@
+/* centered columns styles */
+.row-centered {
+    text-align:center
+}
+.col-centered {
+    display:inline-block ;
+    float:none !important;
+    /* reset the text-align */
+    text-align:center ;
+    /* inline-block space fix */
+    margin-right:-4px ;
+}
+.col-fixed {
+    /* custom width */
+    width:320px;
+}
+.col-min {
+    /* custom min width */
+    min-width:320px;
+}
+.col-max {
+    /* custom max width */
+    max-width:320px;
+}
+
+/* visual styles */
+body {
+    padding-bottom:40px;
+    //position: relative;
+}
+
+.body ,.myOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.myOverlay{
+    z-index: 10;
+    background: rgba(50, 200 , 200, 0.5);
+    width: 100%;
+    height: 120%;
+
+}
+.form-horizontal{
+    width: 75%;
+    margin: 100px auto;
+    background-color: #88FF99;
+    padding-top: 50px;
+}
+
+[class*="col-"] {
+    padding-top:10px;
+    padding-bottom:15px;
+}
+[class*="col-"]:before {
+    display:block;position:relative;
+    margin-bottom:8px;
+    font-family:sans-serif;
+    font-size:10px;
+    letter-spacing:1px;
+    color:#658600;
+    text-align:left;
+}
+.btn{
+
+    position: relative !important;
+    display: inherit !important;
+    margin: auto;
+}
+.item {
+    width:100%;
+    height:100%;
+    border:1px solid #cecece;
+    padding:16px 8px;
+    background:#ededed;
+    background:-webkit-gradient(linear, left top, left bottom,color-stop(0%, #f4f4f4), color-stop(100%, #ededed));
+    background:-moz-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+    background:-ms-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+    text-align: center;
+}
+
+.container{
+
+}
+
+.myUl{
+    width: 50%;
+    margin: auto;
+}
+
+
+/* centering styles for jsbin */
+html,
+body {
+    width:100%;
+    height:100%;
+}
+html {
+    display:table;
+}
+body {
+    display:table-cell;
+    vertical-align:middle;
+}
+.my_check:before{
+    content: '\A';
+    display: inline-block;
+}
+.my_check {
+    display: inline-block;
+    //margin-left: 0px !important;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+/*items list*/
+.view-table
+{
+    display:table;
+    width:100%;
+    text-align: center;
+    margin:auto;
+}
+.view-row
+{
+    display:table-row;
+}
+.view-row > div
+{
+    display: table-cell;
+}
+.view-name
+{
+    text-align:center;
+    width: 16.66%;
+}
+
+#baskList{
+    width: 75%;
+    margin: auto;
+
+}
+
+li{list-style-type: none;}
+
+.red-text{
+    color:red !important;
+}
+.mySpan{
+    color:darkcyan !important;
+}

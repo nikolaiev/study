@@ -1,0 +1,25 @@
+
+body {
+    overflow: hidden;
+}
+
+.links-section {
+    line-height: 1.5;
+}
+
+.links-section a.opened:after {
+    display: inline;
+    content: "(открыта)";
+}
+
+/* */
+
+.marquee-container {
+    position: relative;
+}
+
+.marquee-container .marquee {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}

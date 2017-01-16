@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CryptoLib.Caezar" Collapsed="true">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Caezar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoLib.CryptoBase&lt;TKey&gt;">
+    <Position X="8.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAADEAAAAAAAQAAAAAAAAAAIACAQQIAgIAAAAAAA=</HashCode>
+      <FileName>CryptoBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoLib.Gamma">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Gamma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoLib.Tritemium" Collapsed="true">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAwAAAQAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Tritemium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoLib.DES">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAEAAAAAQAAAAAAAAAAAAAAAAIAAIAAAAAAA=</HashCode>
+      <FileName>DES.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="CryptoLib.ICrypto&lt;TKey&gt;">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAQAAAAAAAAAAAAAAAAIAAIAAAAAAA=</HashCode>
+      <FileName>ICrypto.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="CryptoLib.Alphabets" Collapsed="true">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Alphabets.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
