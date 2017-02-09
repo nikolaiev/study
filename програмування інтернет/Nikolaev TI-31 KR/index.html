@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Soccer Clubs</title>
+    <script src="clubs.js"></script>
+    <script>
+        var getById=(id)=>{return document.getElementById(id);};
+        window.onload=()=>{
+            var selChamps=getById('champs');
+            var selChampsClubs=getById('clubs');
+
+            soccer.forEach((element,index)=>{
+                let opt=document.createElement('option');
+                opt.innerHTML=element.champ;
+                selChamps.appendChild(opt);
+                /*update data first*/
+                putOptions();
+
+                selChamps.onclick=function(){
+                    putOptions();
+                }
+            });
+
+            function putOptions(){
+                let clubObj=soccer[selChamps.selectedIndex];
+                let clubs=clubObj.clubs;
+                let optClub=getById('clubs');
+                optClub.innerHTML="";
+                let champLogo=getById('champLogo');
+
+                champLogo.src=clubObj.champId+'.png';
+
+                clubs.forEach((club)=>{
+                    let opt=document.createElement('option');
+                    opt.innerHTML=club.club;
+                    optClub.appendChild(opt);
+                    let clubImg=getById('clubLogo');
+                    clubImg.src=club.clubId+'.png'
+
+                });
+                /*put data clubs first time*/
+                putClubOptions();
+
+                selChampsClubs.onclick=()=>{
+                    putClubOptions();
+                };
+
+                function putClubOptions(){
+                    let clubObj=clubs[selChampsClubs.selectedIndex];
+                    let clubImg=getById('clubLogo');
+                    clubImg.src=clubObj.clubId+'.png'
+                }
+            }
+        }
+    </script>
+    <style>
+    	/* your style here */
+    </style>
+</head>
+<body>
+<div>
+    <select id="champs"></select>
+    <select id="clubs"></select>
+</div>
+<div>
+    <img id="champLogo" />
+    <img id="clubLogo" />
+ </div>   
+</body>
+</html>
