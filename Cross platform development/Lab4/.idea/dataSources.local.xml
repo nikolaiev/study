@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="postgres@localhost [2]" uuid="53acb038-c873-447f-b781-19f12275c011">
+      <database-info product="PostgreSQL" version="9.5.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <resolve-scope>postgres:postgres,public</resolve-scope>
+    </data-source>
+    <data-source name="NewPersistenceUnit/TopLink" uuid="95700687-f670-4fd0-9bd7-aa9d44171299">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="NewPersistenceUnit/OpenJPA" uuid="a32cda0c-4218-4f83-bab3-82cac3643039">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="NewPersistenceUnit/Hibernate" uuid="22af5103-48a9-492d-9b5a-24b9cf5252b5">
+      <database-info product="PostgreSQL" version="9.5.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>postgres</user-name>
+      <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
+      <resolve-scope>postgres:public,postgres</resolve-scope>
+    </data-source>
+    <data-source name="NewPersistenceUnit/EclipseLink" uuid="f204c756-a874-4d05-b7fe-1cdd3f943c34">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+  </component>
+</project>
