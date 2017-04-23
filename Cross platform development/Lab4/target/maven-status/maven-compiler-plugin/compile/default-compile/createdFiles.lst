@@ -1,0 +1,8 @@
+controller/commands/GetFaculties.class
+dataFolder/FacultyEntity.class
+dataFolder/StudentEntity.class
+dataFolder/FacultyService.class
+controller/ApiController.class
+Controller.class
+controller/commands/Command.class
+Servlet.class
