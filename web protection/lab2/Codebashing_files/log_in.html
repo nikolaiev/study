@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://trade-portal.codebashing.com/log_in -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="refresh" content="172800">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+      #overlay {
+        display: none;
+        text-align: center;
+        background-color: black;
+        border-color: red;
+        opacity: 0.8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 6000;
+
+      }
+
+      #disable_pane {
+        display: none;
+        text-align: center;
+        background-color: transparent;
+        border-color: red;
+        opacity: 0.8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 6000;
+
+      }
+
+      h2.ontop {
+        display: none;
+        text-align: center;
+        position: fixed;
+        top: 40%;
+
+        height: 100%;
+        width: 100%;
+        z-index: 60001;
+
+      }
+
+      h4.ontop {
+        display: none;
+        text-align: center;
+        position: fixed;
+        top: 40%;
+        /*	top: 5.0em;*/
+        height: 100%;
+        width: 100%;
+        z-index: 60001;
+      }
+
+    </style>
+
+    <script src="./jquery.min.js.download"></script>
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="7bX/ohIrpi3gaEeBFwH3pLb2iMjo3nHYaatrTSZvjZc=" name="csrf-token">
+
+    <link href="./main.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="./jquery.nicescroll.min.js.download"></script>
+
+    <script>
+      document.domain = 'codebashing.com';
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $("#testparent", parent.window.document ).val( window.location.href );
+        $("#butts", parent.window.document ).click(function() {
+          var matches = $( "#testparent", parent.window.document ).val().match('codebashing.com/news/');
+          if ( matches )
+          {
+            console.log('has cb');
+            window.location = $( "#testparent", parent.window.document ).val();
+
+          } else {
+            console.log('does not have cb');
+            return;
+          }
+        });
+      });
+
+    </script>
+
+
+    <script>
+      function blah_one() {
+        $.getJSON('https://trade-portal.codebashing.com/secret', function(data) {
+          var search = data.session + '.*SELECT';
+          var s_var = "[" + data.session + ']';
+
+    					//if ($.browser.mozilla) {
+    					//window.parent.frames[1].window._filterValue = search;
+    					//window.parent.frames[1].window._supress = s_var;
+    					//}
+
+    					//else
+    					//{
+
+               parent.window.frames[1].window._filterValue = search;
+               parent.window.frames[1].window._supress = s_var;
+
+    					//}
+
+
+    				});
+      }
+
+
+      $(window).load(function() {
+        parent.window.spinnerStop();
+
+        $('body').niceScroll({
+          autohidemode : false, // Do not hide scrollbar when mouse out
+          cursorborderradius : '3px', // Scroll cursor radius
+    			background : { color: '#333333'}  , // The scrollbar rail color
+    			cursorwidth : '7px', // Scroll cursor width
+    			cursorcolor : '#999999', // Scroll cursor color
+    			cursorborderradius : "3px",
+    			cursorborder: { border: 'none'},
+    			horizrailenabled: false
+        });
+
+        if (($("#six", parent.document).attr('class') == "open") || ($("#seven", parent.document).attr('class') == "open") || ($("#eight", parent.document).attr('class') == "open") || ($("#nine", parent.document).attr('class') == "open")){
+
+          // var exercise_url = parent.window.location.pathname;
+          var course_name = "";
+          var splitted_location = parent.window.location.pathname.split('/');
+          if (splitted_location[1] === 'courses'){ // Path for v2 courses
+            course_name = splitted_location[2];
+          }else{
+            course_name = splitted_location[1]; // Path for v1 courses
+          }
+
+          switch ( course_name ) {
+            case "java":
+            case "javas":
+              var original_txt = "" +
+              "//String email = request.getParameter(\"email\");\r\n" +
+              "//String password = request.getParameter(\"password\");\r\n\r\n" +
+
+              "String sql = \"select * from users where (email ='\" + $email +\"' and password ='\" + $password + \"')\";\r\n" +
+              "		  	  SELECT * FROM users WHERE (email =    '$email'    AND password =    '$password')\r\n" +
+
+              "//Connection connection = pool.getConnection();\r\n" +
+              "//Statement statement = connection.createStatement();\r\n" +
+              "//ResultSet result = statement.executeQuery(sql);\r\n\r\n" +
+
+              "//if (result.next()) {\r\n" +
+              "//loggedIn = true;\r\n" +
+              "//	# Successfully logged in and redirect to user profile page\r\n" +
+              "//} else {\r\n\r\n" +
+
+              "//	# Auth failure - Redirect to Login Page \r\n" +
+              "//}";
+              break;
+            case "dotnet":
+            case "dotnets":
+              var original_txt = "" +
+              "//using (MySqlConnection connnection = new MySqlConnection(ConnString))\r\n" +
+              "//{\r\n" +
+              "    // Build the query statement using dynamic data.\r\n" +
+              "    string sql = \"SELECT UserId FROM User WHERE \" + \"(email = '\" + $email + \"' AND \" + \"password = '\" + $password + \"')\";\r\n" +
+              "				  SELECT UserID FROM User WHERE      (email =     '$email'     AND      password =     '$password')\r\n" +
+              "//    using (MySqlCommand cmd = new MySqlCommand(sql))\r\n" +
+              "//    {\r\n" +
+              "//         cmd.Connection = connnection;\r\n" +
+              "//         try\r\n" +
+              "//         {\r\n" +
+              "//             cmd.Connection.Open();\r\n" +
+              "//             var userId = cmd.ExecuteScalar();\r\n" +
+              "//         }\r\n" +
+              "//         catch (SqlException sx)\r\n" +
+              "//         {\r\n" +
+              "//             // Handle exceptions before moving on.\r\n" +
+              "//         }\r\n" +
+              "//     }\r\n" +
+              "//}";
+              break;
+            case "php":
+            case "phps":
+              var original_txt = "" +
+              "//email=$_POST['email'];\r\n" +
+              "//password=$_POST['password'];\r\n\r\n" +
+
+              "$stmt=mysql_query(\"SELECT * FROM users WHERE (email = '$email' AND password = '$password') LIMIT 0,1\");\r\n" +
+              "				   SELECT * FROM users WHERE (email = '$email' AND password = '$password') LIMIT 0,1\")\r\n\r\n" +
+
+              "//$count = mysql_fetch_array($stmt);\r\n\r\n" +
+
+              "//if($count > 0)\r\n" +
+              "//{\r\n" +
+              "//session_start();\r\n" +
+              "//# Successfully logged in and redirect to user profile page\r\n" +
+              "//}\r\n" +
+              "//else\r\n" +
+              "//{\r\n" +
+              "//# Auth failure - Redirect to Login Page\r\n" +
+              "//}";
+              break;
+          case "nodejs":
+          case "nodejs":
+            var original_txt = "//\r\n" +
+            "//function authenticate(req, res, next) {\r\n" +
+            "//    var email = req.query.email,\r\n" +
+            "//        password = req.query.password,\r\n" +
+            "//        sqlRequest = new sql.Request(),\r\n" +
+            "        sqlQuery = \"select * from users where (email ='\" + $email + \"' and password ='\" + $password + \"')\";\r\n" +
+            "					SELECT * FROM users WHERE (email =    '$email'     AND password =    '$password')\r\n" +
+
+            "//    sqlRequest.query(sqlQuery)\r\n" +
+            "//        .then(function (recordset) {\r\n" +
+             "//            if (recordset.length == 1) {\r\n" +
+             "//                loggedIn = true;\r\n" +
+             "//                //Successfully logged in and redirect to user profile page\r\n" +
+             "//            } else {\r\n" +
+             "//                //Auth failure - Redirect to Login Page\r\n" +
+             "//            }\r\n" +
+             "//        })\r\n" +
+            "//        .catch(next);\r\n" +
+            "//};";
+            break;
+          case "ruby":
+          case "rubies":
+            var original_txt = "//\r\n" +
+
+            "//def create\r\n" +
+            "//  begin\r\n\r\n" +
+
+            "  user = User.where(\"email = '#{params[:$email]}' AND password = '#{params[:$password]}'\").first\r\n" +
+            "	  SELECT * FROM users WHERE (email = '$email' AND password = '$password')\r\n" +
+            "//  if user\r\n" +
+            "//      session[:user_id] = user.id\r\n" +
+            "//      redirect_to  '/loggedins'\r\n" +
+            "//  else\r\n" +
+            "//      flash.now[:alert] = \"Invalid username or password\"\r\n" +
+            "//      render \"new\"\r\n" +
+            "//  end\r\n" +
+            "//end";
+            break;
+          case "python":
+          case "pythons":
+            var original_txt = "\r\n" +
+
+            "//def authenticate(request):\r\n" +
+            "//    email = request.POST['email']\r\n" +
+            "//    password = request.POST['password']\r\n" +
+            "    sql = \"select * from users where (email ='\" + $email + \"' and password ='\" + $password + \"')\"\r\n" +
+            "	       SELECT * FROM users WHERE (email =    '$email'     AND password =    '$password')\r\n" +
+            "//    cursor = connection.cursor()\r\n" +
+            "//    cursor.execute(sql)\r\n" +
+            "//    row = cursor.fetchone()\r\n" +
+            "//    if row:\r\n" +
+            "//        loggedIn = \"Logged Success\"\r\n" +
+            "//    else:\r\n" +
+            "//        loggedIn = \"Login Failure\"\r\n" +
+            "//    return HttpResponse(\"Logged In Status:\" + loggedIn)";
+            break;
+          case "scala":
+          case "scalas":
+            var original_txt = "" +
+            "//object Wrong {\r\n\r\n" +
+
+            "//    val request = userForm.bindFromRequest().get\r\n" +
+            "//    val email = request.email\r\n" +
+            "//    val password = request.password\r\n" +
+            "    val sql = \"select * from users where (email =\'\" + $email + \"\' and password =\'\" + $password + \"\')\"\r\n" +
+            "			   SELECT * FROM users WHERE (email =    '$email'     AND password =    '$password')\r\n" +
+            "//    DB.withConnection {\r\n" +
+            "//      conn => {\r\n" +
+            "//        val statement = conn.createStatement()\r\n" +
+            "//        val result = statement.executeQuery(sql)\r\n" +
+            "//        if (result.next()) {\r\n\r\n" +
+
+            "//          // Successfully logged in and redirect to user profile page\r\n\r\n" +
+
+            "//        } else {\r\n\r\n" +
+
+            "//          // Auth failure -Redirect to Login Page\r\n" +
+            "//        }\r\n\r\n" +
+
+            "//      }\r\n" +
+            "//    }\r\n" +
+            "//  }";
+            break;
+          case "sql_":
+          var original_txt = "" +
+                        "//String email = request.getParameter(\"email\");\r\n" +
+                        "//String password = request.getParameter(\"password\");\r\n\r\n" +
+
+                        "String sql = \"select * from users where (email ='\" + $email +\"' and password ='\" + $password + \"')\";\r\n" +
+                        "              SELECT * FROM users WHERE (email =    '$email'    AND password =    '$password')\r\n" +
+
+                        "//Connection connection = pool.getConnection();\r\n" + 
+                        "//Statement statement = connection.createStatement();\r\n" +
+                        "//ResultSet result = statement.executeQuery(sql);\r\n\r\n" +
+
+                        "//if (result.next()) {\r\n" +
+                        "//loggedIn = true;\r\n" +
+                        "//     # Successfully logged in and redirect to user profile page\r\n" +
+                        "//} else {\r\n\r\n" +
+                                
+                        "//     # Auth failure - Redirect to Login Page \r\n" +
+                        "//}";
+          } 
+
+      $("input").on("keyup", function(event) {
+        var new_txt = "";
+        var pat = /</gi;
+
+        //loop through items in the "variable" class
+        $.each($(".variable"), function(i, e) {
+          e.value = e.value.replace(pat,' ');
+          //create pttern for search and replace
+          pattern = new RegExp('\\$' + e.name, 'gi');
+          //if there is a value for that input field
+          if (e.value.length > 0) {
+            //console.log(e.value);
+            //If we have already replaced some strings, use that processed string
+            if (new_txt.length > 1) {
+              //new_txt = new_txt.replace(pat,' ');
+              //console.log(new_txt);
+              new_txt = new_txt.replace(pattern, e.value);
+            }
+            //we have not performed and search and replacements, use original text
+            else {
+              new_txt = original_txt.replace(pattern, e.value);
+            }
+          }
+        });
+        //end loop
+
+        //if we processed any text use the manufactured string
+        if (new_txt.length > 0) {
+          parent.movie2._editor.setValue(new_txt);
+          var hlLine = parent.movie2._editor.setLineClass(5, "activeline");
+        }
+        //Nothing has changed! use the original text
+        else {
+          parent.movie2._editor.setValue(original_txt);
+          var hlLine = parent.movie2._editor.setLineClass(5, "activeline");
+        }
+      });
+
+
+      // Node JS updates
+      if (course_name == "node_js") {
+        $("input").on("keyup", function(event) {
+        var new_txt = "";
+        var pat = /</gi;
+
+        //loop through items in the "variable" class
+        $.each($(".variable"), function(i, e) {
+          e.value = e.value.replace(pat,' ');
+          //create pttern for search and replace
+          pattern = new RegExp('\\$' + e.name, 'gi');
+          //if there is a value for that input field
+          if (e.value.length > 0) {
+            //console.log(e.value);
+            //If we have already replaced some strings, use that processed string
+            if (new_txt.length > 1) {
+              //new_txt = new_txt.replace(pat,' ');
+              //console.log(new_txt);
+              new_txt = new_txt.replace(pattern, e.value);
+            }
+            //we have not performed and search and replacements, use original text
+            else {
+              new_txt = original_txt.replace(pattern, e.value);
+            }
+          }
+        });
+        //end loop
+
+        //if we processed any text use the manufactured string
+        if (new_txt.length > 0) {
+          parent.movie2._editor.setValue(new_txt);
+          var hlLine = parent.movie2._editor.setLineClass(6, "activeline");
+        }
+        //Nothing has changed! use the original text
+        else {
+          parent.movie2._editor.setValue(original_txt);
+          var hlLine = parent.movie2._editor.setLineClass(6, "activeline");
+        }
+      });
+      }
+
+      // Scala Updates
+      if (course_name == "scala") {
+        $("input").on("keyup", function(event) {
+          var new_txt = "";
+          var pat = /</gi;
+          //loop through items in the "variable" class
+          $.each($(".variable"), function(i, e) {
+            e.value = e.value.replace(pat,' ');
+            //create pttern for search and replace
+            pattern = new RegExp('\\$' + e.name, 'gi');
+            //if there is a value for that input field
+            if (e.value.length > 0) {
+              //console.log(e.value);
+              //If we have already replaced some strings, use that processed string
+              if (new_txt.length > 1) {
+                //new_txt = new_txt.replace(pat,' ');
+                //console.log(new_txt);
+                new_txt = new_txt.replace(pattern, e.value);
+              }
+              //we have not performed and search and replacements, use original text
+              else {
+                new_txt = original_txt.replace(pattern, e.value);
+              }
+            }
+          });
+          //end loop
+
+          //if we processed any text use the manufactured string
+          if (new_txt.length > 0) {
+            parent.movie2._editor.setValue(new_txt);
+            var hlLine = parent.movie2._editor.setLineClass(7, "activeline");
+          }
+          //Nothing has changed! use the original text
+          else {
+            parent.movie2._editor.setValue(original_txt);
+            var hlLine = parent.movie2._editor.setLineClass(7, "activeline");
+          }
+        });
+      }
+      }
+      });
+    </script>
+  </head>
+
+  <body class="nobg loginPage" style="overflow-y: hidden;">
+    <h2 class="ontop" style="color: #e74c3c;">Vulnerable Application</h2>
+    <div id="overlay"></div>
+    <div id="disable_pane"></div>
+    <div class="topNav">
+      <div class="wrapper">
+        <div class="welcome"><a href="https://trade-portal.codebashing.com/log_in#" title=""></a><span><strong>TradePORTAL</strong></span></div>
+        <div class="userNav" style="float: right;">
+          <ul>
+            <li><a id="vuln_login" href="https://trade-portal.codebashing.com/log_in"><img src="./logout.png" alt=""><span>Login</span></a></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="loginWrapper">
+	<div class="widget">
+		<div class="title"><img src="./files.png" alt="" class="titleIcon"><h6>TradePORTAL Login</h6>
+		</div>
+		<form accept-charset="UTF-8" action="https://trade-portal.codebashing.com/sessions" autocomplete="off" class="form" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="7bX/ohIrpi3gaEeBFwH3pLb2iMjo3nHYaatrTSZvjZc="></div>
+		<fieldset>
+			<div class="formRow">
+				<label for="login">Username:</label>
+				<div class="loginInput">
+					<input type="text" class="variable" name="email" id="variable1">
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="formRow">
+				<label for="pass">Password:</label>
+				<div class="loginInput">
+					<input type="password" class="variable" name="password" id="variable2" onkeypress="return runScript(event)">
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="loginControl">
+				<!-- <div class="rememberMe">
+					<input type="checkbox" id="remMe" name="remMe" autocomplete="off"/>
+					<label for="remMe">Remember me</label>
+				</div> -->
+				<input type="submit" value="Log me in" class="dredB logMeIn" id="btnStatus">
+				<div class="clear"></div>
+			</div>
+		</fieldset>
+</form>	</div>
+	
+	
+	<!--<div class="nNote nFailure hideit">
+            <p><strong>FAILURE: </strong>Oops sorry. That action is not valid, or our servers have gone bonkers</p>
+    </div> -->
+        
+        
+</div>
+
+<script>
+var inp = document.querySelector( '#variable2' );
+
+inp.addEventListener( 'focus', function(){
+    inp.type = 'password';
+});
+inp.addEventListener( 'blur', function(){
+    inp.type = 'text';
+});
+
+
+function runScript(e) {
+    if (e.keyCode == 13) {
+        var tb = document.getElementById("variable2");
+        tb.type = 'text';
+        return;
+    }
+}
+
+			
+$(window).load(function() {
+
+
+	$('form').on("submit", function(event) {
+
+	var value = $('#variable1').val();
+	var value2 = $('#variable2').val();
+
+	if ( $("#three", parent.document).attr('class') == "open") {
+
+		if ((value == "alice@bank.com") && (value2 && !(value2.match("\'")))) {
+
+			$("#three a", parent.document).css('background', 'url(/assets/images/checkmark.png) no-repeat 95% 50%');
+			parent.tutor.open(3);
+
+
+		}
+
+	}
+
+
+	if ($("#four", parent.document).attr('class') == "open") {
+                    
+	     if (value2 && (value2.indexOf("\'") != -1)) {
+
+	            $("#four a", parent.document).css('background', 'url(/assets/images/checkmark.png) no-repeat 95% 50%');
+	              parent.tutor.open(4);
+
+	     } 
+    }
+
+
+    if ($("#eight", parent.document).attr('class') == "open") {
+                
+        if (value2 && (value2.indexOf("\'\'") != -1)) {
+
+        	 $("#eight a", parent.document).css('background', 'url(/assets/images/checkmark.png) no-repeat 95% 50%');
+
+            parent.tutor.open(8);
+            
+            // var contactTopPosition = $("#five", parent.document).position().top;
+            // $("#sidepane", parent.document).animate({scrollTop: contactTopPosition});
+
+		}
+    }
+
+
+});
+
+});
+
+
+
+</script>
+
+
+
+
+
+        
+
+
+    <script>
+      function blah_two() {
+        var docHeight = $(document).height();
+          $("#overlay, .ontop").fadeIn("fast"); //height(docHeight)
+        }
+      function blah_three() {
+        $("#overlay, .ontop").fadeOut("fast");
+      }
+    </script>
+
+    <script>
+      $(".logMeIn").click(function() {
+        parent.window.frames[1].window._bringDown();
+      });
+    </script>
+  
+
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 7px; z-index: auto; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 1; display: none;"><div style="position: relative; top: 0px; float: right; width: 7px; height: 0px; background-color: rgb(153, 153, 153); background-clip: padding-box; border-radius: 3px;"></div></div></body></html>

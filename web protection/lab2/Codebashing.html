@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://www.codebashing.com/sql_demo# -->
+<html prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+
+	
+
+		<title>Codebashing</title>
+		<meta name="description" content="Game-like AppSec Training for Enterprise Developers. Hands on interactive training built by developers for developers.">
+		<meta name="robots" content="noodp">
+		<link rel="canonical" href="https://www.codebashing.com/">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Learn Application Security | Codebashing">
+		<meta property="og:description" content="Game-like AppSec Training for Enterprise Developers. Hands on interactive training built by developers for developers.">
+		<meta property="og:url" content="https://www.codebashing.com/">
+		<meta property="og:site_name" content="Codebashing">
+		<meta property="og:image" content="https://s3.amazonaws.com/codebashing.com/wp-content/uploads/2016/10/08193817/cbweb.png">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:description" content="Game-like AppSec Training for Enterprise Developers. Hands on interactive training built by developers for developers.">
+		<meta name="twitter:title" content="Learn Application Security | Codebashing">
+		<meta name="twitter:site" content="@codebashing">
+		<meta name="twitter:image" content="https://s3.amazonaws.com/codebashing.com/wp-content/uploads/2016/10/08193817/cbweb.png">
+		<meta name="twitter:creator" content="@codebashing">
+
+		<link href="./Codebashing_files/common-1f45f8a7eea6cb2028af635da07c1ef2.css" media="screen" rel="stylesheet">
+
+		<script type="text/javascript" async="" src="./Codebashing_files/mixpanel-2-latest.min.js.download"></script><script async="" src="./Codebashing_files/analytics.js.download"></script><script src="./Codebashing_files/common-9c5033ddce80d02058756f84d3490861.js.download"></script><style type="text/css"></style>
+<script src="./Codebashing_files/sql_injection-bdca16f050e457e173a92f20d54fb9fa.js.download"></script>
+
+
+		<meta content="authenticity_token" name="csrf-param">
+<meta content="UsvuB6M+wIsxBwjZJQoSd0/c9YbtSvpCii/ciFPrGkI=" name="csrf-token">
+
+
+	<link rel="stylesheet" type="text/css" href="./Codebashing_files/chrome.css"><script type="text/javascript" charset="utf-8" async="" src="./Codebashing_files/button.dbd2ecb9bd9c842d156aaccc19b23231.js.download"></script></head>
+
+	<body style="height: 100%; display: block;">
+
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="containerx" style="display: hidden;">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<ul class="nav">
+					<li class="lang-banner" style="color: #f36a22">
+                  <a href="https://www.codebashing.com/#demoplay" style="color: #f36a22; cursor: pointer; padding: 0px !important">FIND OUT MORE</a>
+                  </li>
+                  <li id="tweet" style="margin-left: 20px; margin-top: 8px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Codebashing_files/tweet_button.c7112f7adf6a24ddcb78d834866e1439.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;" data-url="http://www.codebashing.com/try-it"></iframe></li>
+
+					</ul>
+
+					<a id="info-tour"><div id="linkedin" style="float: right; margin-right: 20px;"></div></a>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container" style="height: 100%;">
+
+			<div id="sidepane" style="overflow: hidden; outline: none;" tabindex="5000">
+
+				<div id="overlayfront" style="display: none;"></div>
+				<div id="mainoverlay"></div>
+
+				<h2 class="help_title_main" style="display: none;">Exercise Instructions</h2>
+
+				<h1>SQL Injection</h1>
+				<br>
+				<p>
+					In this interactive tutorial you will understand how SQL injection attacks are used to compromise the security of a web application, and how to write code more securely to protect against this type of attack.
+				</p>
+				<br>
+
+				<button class="btn-s btn-block-s btn-lg-s btn-success-s" id="start" style="display: block;">
+					START
+				</button>
+
+				<div class="arrow_bounce" style="display: none;"></div>
+
+
+
+				<div id="cb_tutor">
+
+					<h3 id="one" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">1. Exercise Background</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+							The <span id="vapp">vulnerable application</span> pane loads the TradePORTAL application, an online trading platform. Registered users of the system can login to buy and sell stocks, bonds and currencies.  <span class="vuln_browser">Alice</span> is a trader and registered (legitimate) user of the application.
+
+						<br><br>
+						</p><hr class="style-six"><br>
+						<strong>Action</strong><br>
+						<p>Click "Next" to continue.</p>
+						<p></p>
+						<br><hr class="style-six"><br>
+
+						<a style="color: #f05023; text-decoration: none; cursor: pointer;" class="blue-button" id="blue-one">Next</a>
+
+					</div>
+
+					<h3 id="two" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">2. SQL Query Logs</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+						The <span id="llog">live log</span> pane displays real-time SQL database queries that are generated and logged by the TradePORTAL application.
+						</p><hr class="style-six"><br>
+						<strong>Action</strong><br>
+						<p>Click "Next" to continue.</p>
+						<p></p>
+						<br><hr class="style-six"><br>
+
+						<a style="color: #f05023; text-decoration: none; cursor: pointer;" class="blue-button" id="blue-two">Next</a>
+
+
+					</div>
+
+					<h3 id="three" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">3. Logging In</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+						<span class="vuln_browser">Alice</span> tries to login to the application with the following credentials:<br><br>
+						<strong>Username:</strong>
+						<code>alice@bank.com</code><br><br>
+						<strong>Password:</strong>
+						<code>alice123</code>
+						<br><br>
+						Note: Keep an eye on the <span id="llog">live log</span> pane when attempting to login.
+						</p><hr class="style-six"><br>
+						<strong>Action</strong><br>
+						<p>Use <span class="vuln_browser">Alice's</span> credentials to login.</p>
+						<p></p>
+						<br><hr class="style-six"><br>
+
+
+					</div>
+
+					<h3 id="four" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">4. Bad Input</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+					So the password <code>alice123</code> doesn't seem to work for <span class="vuln_browser">Alice's</span> account. Before contacting the administrator to reset her password, <span class="vuln_browser">Alice</span> tries entering the same password followed by a single quote <code>'</code> character. Something like:<br><br>
+					<strong>Username:</strong>
+					<code>alice@bank.com</code><br><br>
+					<strong>Password:</strong>
+					<code>alice123'</code>
+					<br><br>
+
+					</p><hr class="style-six"><br>
+					<strong>Action</strong><br>
+					<p>Use <span class="vuln_browser">Alice's</span> credentials to login. Note: this time add the single <code>'</code> to the end of <span class="vuln_browser">Alice's</span> password.</p>
+					<p></p>
+					<br><hr class="style-six"><br>
+
+
+					</div>
+
+					<h3 id="five" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">5. Strange Error</a></h3>
+					<div aria-hidden="true" style="display: none;">
+
+					<p>
+					Something broke. Adding the single quote to the password caused the TradePORTAL application to crash with a <code>HTTP 500 Internal Server Error</code>
+					<br><br>Looking at the <span id="llog">live log</span> pane, this seems to have been due to the <code>SQL syntax error</code>
+					<br><br>Read the error log output carefully. Do you think the single quote <code>'</code> in <span class="vuln_browser">Alice's</span> password caused this error?
+
+					</p><hr class="style-six"><br>
+					<strong>Action</strong><br>
+					<p>As <span class="vuln_browser">Alice</span> click "Back to Login" button to continue with the exercise.</p>
+					<p></p>
+					<br><hr class="style-six"><br>
+
+
+					</div>
+
+					<h3 id="six" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">6. Authentication Logic</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+					To understand why the error occurred, let's first analyze TradePORTAL's authentication method, specifically the code responsible for checking <span class="vuln_browser">Alice's</span> authentication credentials.
+
+
+						<br><br>
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>Click below to continue with the code walkthrough.</p>
+					    <p></p>
+					    <br><hr class="style-six"><br>
+
+						<div class="showcode">
+
+							 <a style="color: #f1c40f !important; text-decoration: none; cursor: pointer;" class="showcode-button" id="highlight-vulnerable">Code Walkthrough</a>
+
+						</div>
+					</div>
+
+					<h3 id="seven" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">7. Building the SQL Query</a></h3>
+					<div aria-hidden="true" style="display: none;">
+
+					<p>
+					To further understand how <span class="vuln_browser">Alice's</span> input is used to build the SQL statement used for authentication, let's first simplify the authentication source code for the TradePORTAL application.
+
+						<br><br>
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>Click below to simplify our authentication code.</p>
+					    <p></p>
+					    <br><hr class="style-six"><br>
+
+					    <div class="showcode2">
+
+							 <a style="color: #f1c40f !important; text-decoration: none; cursor: pointer;" class="showcode-button" id="highlight-vulnerable-2">Simplify Code</a>
+
+						</div>
+
+					</div>
+
+					<h3 id="eight" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">8. Understanding Injection</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+					Step 1: Enter the password <code>alice123'</code> and watch the code window.
+					<br>
+					Notice how the single quote <code>'</code> you appended is interpreted by the SQL server as a string delimiter.
+					<br>However, when the query is processed, the last quote does not have a closing/matching <code>'</code> character, which causes a <code>SQL syntax error</code> , resulting in the <code>HTTP 500 Internal Server Error</code>
+					<br><br>
+					Step 2: Now try logging with a password followed by two single quotes. e.g. <code>alice123''</code>
+					<br>Interestingly, the application does not error in this case.
+
+					<br><br>
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>1. Enter the password <code>alice123'</code> and watch the code window.</p>
+					    <p>2. Enter the password <code>alice123''</code> to continue with the exercise</p>
+					    <p></p>
+					    <br><hr class="style-six"><br>
+
+					</div>
+
+					<h3 id="nine" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">9. Bypassing Authentication</a></h3>
+					<div aria-hidden="true" style="display: none;">
+
+					<p>
+						At this point we know that injecting characters interpreted by the database server is known as <strong>SQL Injection</strong>
+
+						<br><br>
+						However, its not just <code>'</code> characters that can be injected, entire strings can be injected. What if this could be used to alter the purpose of the SQL statement entirely?<br><br>
+							Try entering the following credentials:
+							<br><br>
+
+							<strong>Username:</strong>
+						<code>alice@bank.com</code><br><br>
+						<strong>Password:</strong>
+						<code>' or 1=1)#</code>
+						<br><br>
+
+
+						Note in MySQL the <code>#</code> character is used for code comments. Keep an eye on the code window, everything to the right of the <code>#</code> character is commented out, including the extra <code>'</code> and <code>)</code> character.<br><br>
+						NB: The provided SQL payload is the one you must use
+
+
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>Inject SQL by using the supplied username and password string and see if you can bypass TradePORTAL’s authentication</p>
+					    <p></p>
+					    <br><hr class="style-six"><br>
+
+
+
+
+					</div>
+
+					<h3 id="ten" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">10. SQL Injection Explained </a></h3>
+					<div aria-hidden="true" style="display: none;">
+
+					<p>Authentication was bypassed, but why? Recall the following inputs were submitted:
+					<br><br>
+					<strong>Username:</strong>
+						<code>alice@bank.com</code><br><br>
+						<strong>Password:</strong>
+						<code>' or 1=1)#</code>
+					<br><br>
+
+					The above resulted in the following SQL statement:
+					<br><code>SELECT * </code>
+					<br><code>WHERE (email = 'alice@bank.com'</code>
+					<br><code>AND password = '' <b>OR</b> 1=1)#</code>
+					<br><br>
+					Because the statement is both syntactically valid and <code>OR 1=1</code> always returns true, the authentication mechanism was bypassed.
+
+					Let's now analyse the vulnerability from a code perspective.
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>Click below to continue with the code walkthrough.</p>
+					    <p></p>
+					   <br><hr class="style-six"><br>
+
+
+					<div class="showcode3">
+
+							 <a style="color: #f1c40f !important; text-decoration: none; cursor: pointer;" class="showcode-button" id="highlight-vulnerable-3">Code Walkthrough</a>
+
+					</div>
+
+					</div>
+
+					<h3 id="eleven" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">11. Remediation</a></h3>
+					<div aria-hidden="true" style="display: none;">
+					<p>
+					Prepared statements (aka parameterized queries) are the best mechanism for preventing SQL injection attacks.
+					<br><br>Prepared statements are used to abstract SQL statement syntax from  input parameters. Statement templates are first defined at the application layer, and the parameters are then passed to them.
+					<br><br>In Java this can be achieved using a <code>PreparedStatement</code> class for sending SQL statements to the backend database.
+					<br><br>
+					Aside from a better security posture against SQL injection attacks, prepared statements offer improved code quality from a legibility and maintainability perspective due to separation of the SQL logic from its inputs.
+						<br><br>
+						</p><hr class="style-six"><br>
+					    <strong>Action</strong>
+					    <p>Click below to apply fix.</p>
+					    <p></p>
+					   <br><hr class="style-six"><br>
+
+					<div class="showcode4">
+
+							 <a style="color: #f1c40f !important; text-decoration: none; cursor: pointer;" class="showcode-button" id="highlight-vulnerable-4">Apply Fix</a>
+
+						</div>
+
+
+
+					</div>
+
+					<h3 id="twelve" data-collapse-summary="" class="close"><a href="https://www.codebashing.com/sql_demo#">12. Conclusion</a></h3>
+					<div aria-hidden="true" style="display: none;">
+
+					<p>
+						In this module we learned how and why basic SQL Injection attacks work.
+						<br><br>
+						We also learned that when a SQL Injection attack is successful it can be used to seriously compromise an application.
+						<br><br>
+						We also learned that using Prepared Statements in your code are a good defense against this type of attack.
+
+					<br><br>
+					</p><hr class="style-six"><br>
+					 <strong>Action</strong>
+					 <p>Click "Next" to complete the exercise.</p>
+					 <p></p>
+					 <br><hr class="style-six"><br>
+
+
+					<a style="color: #f05023; text-decoration: none; cursor: pointer;" class="blue-button" id="blue-twelve">Next</a>
+
+
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+			<div id="container" class="ui-layout-container" style="overflow: hidden;">
+
+			<div id="exercise_lock" style="height: 571px;"><span class="browser-locked">BROWSER LOCKED</span></div>
+
+				<!-- VULNERABLE APPLICATION PANE START -->
+
+				<div class="pane ui-layout-north ui-layout-pane ui-layout-pane-north" style="position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 0; height: 531px; display: block; visibility: visible;">
+
+					<div class="browser">
+						<div class="browser-header">
+
+							<a id="browser_button"></a>
+
+							<form id="xtasy" autocomplete="off">
+								<input id="testparent" type="text" style="padding-left: 4px;">
+							</form>
+
+						</div>
+
+					</div>
+
+					<div id="vulnerable_application"><iframe width="100%" height="100%" frameborder="0" scrolling="yes" id="iframeID2" src="./Codebashing_files/log_in.html"></iframe></div>
+
+				</div>
+
+				<!-- VULNERABLE APPLICATION PANE STOP -->
+
+				<!-- LIVE LOG WINDOW START -->
+
+				<div class="pane ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 0px; right: 0px; top: 571px; bottom: 0px; height: 1px; width: 1066px; z-index: 0; display: block; visibility: visible;">
+
+					<div id="cbheader">
+						<div id="logbar">
+							<img src="./Codebashing_files/db.png" style="position: relative; right: 5px; bottom: 2px; width: 16px;">
+							Live Log
+						</div>
+					</div>
+
+					<div id="logger_pane"><iframe longdesc="https://codebashing.com:9001" width="100%" height="100%" frameborder="0" scrolling="no" onload="parent.window.frames[0].window.blah_one();" id="iframeID" src="./Codebashing_files/logger.html"></iframe></div>
+				</div>
+
+				<!-- LIVE LOG WINDOW END -->
+
+
+				<!-- DYNAMIC CODE SECTION START -->
+
+				<div class="pane ui-layout-west ui-layout-pane ui-layout-pane-west" style="position: absolute; margin: 0px; left: 0px; right: auto; top: 571px; bottom: 0px; height: 1px; z-index: 0; width: 1065px; display: none; visibility: visible;">
+
+					<div id="cbheader">
+						<div id="codebar">
+							<img src="./Codebashing_files/app_window.png" style="position: relative; right: 5px; bottom: 2px; width: 16px;">
+
+							Code
+						</div>
+					</div>
+					<div id="because">
+
+						<textarea id="code" name="code" style="display: none;">
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+
+String sql = "select * from users where (email ='" + email +"' and password ='" + password + "')";
+
+Connection connection = pool.getConnection();
+Statement statement = connection.createStatement();
+ResultSet result = statement.executeQuery(sql);
+
+if (result.next()) {
+loggedIn = true;
+	# Successfully logged in and redirect to user profile page
+} else {
+
+	# Auth failure - Redirect to Login Page
+}
+@@@
+
+wait: 500
+
+moveTo: 0:0
+
+label: CM001-01
+
+showTooltip: { text: "To validate user credentials, the &lt;code&gt;request.getParameter()&lt;/code&gt; method is first called to extract &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; email (from the HTTP request parameter) which is assigned to the &lt;code&gt;email&lt;/code&gt; variable.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\"&gt;Next&lt;/button&gt;" , pos: "0:9"}
+
+pause
+
+moveTo: 1:0
+
+label: CM001-02
+
+showTooltip: { text: "Similarly, the &lt;code&gt;request.getParameter()&lt;/code&gt; method is called to extract &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; password value and assigned to the &lt;code&gt;password&lt;/code&gt; variable.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM001-01\" &gt;Back&lt;/button&gt; &lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\" &gt;Next&lt;/button&gt;" , pos: "1:9"}
+
+pause
+
+moveTo: 3:0
+
+label: CM001-03
+
+showTooltip: { text: "The string variable &lt;code&gt;sql&lt;/code&gt; is then declared, which represents the SQL query used to authenticate  &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; credentials. &lt;br&gt;&lt;br&gt;Note, that &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; values are concatenated to build the final query.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM001-02\"&gt;Back&lt;/button&gt; &lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\"&gt;Next&lt;/button&gt;", pos: "3:8" }
+
+pause
+
+moveTo: 7:0
+
+label: CM001-04
+
+showTooltip: { text: "The SQL query defined in &lt;code&gt;sql&lt;/code&gt; string variable is then executed by invoking the  &lt;code&gt;executeQuery&lt;/code&gt; method. This method executes our query against the backend SQL server and returns a &lt;code&gt;ResultSet&lt;/code&gt; object which is checked on line &lt;strong style=\"color: #f1c40f;\"&gt;10&lt;/strong&gt; through the &lt;code&gt;if/else&lt;/code&gt; block.&lt;br&gt;&lt;br&gt;Finally, should &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; credentials match, the &lt;code&gt;loggedIn&lt;/code&gt; variable is set to &lt;code&gt;true&lt;/code&gt; and she is redirected to her profile page.&lt;br/&gt;&lt;br&gt;&lt;button class=\"blue-button-small\" style=\"float: left;\" data-label=\"CM001-03\"&gt;Back&lt;/button&gt;&lt;button class=\"blue-button-small\" style=\"float: right;\" data-label=\"stop\"  onclick=\"$(\'#blue-six\').show();\"&gt;Understood&lt;/button&gt;", pos: "7:36" }
+
+pause
+
+
+
+</textarea><div class="CodeMirror CodeMirror-wrap CodeMirror-movie"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea style="position: absolute; padding: 0; width: 1px; height: 1em" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scrollbar"><div class="CodeMirror-scrollbar-inner"></div></div><div class="CodeMirror-scroll cm-s-mbo" tabindex="-1"><div style="position: relative"><div style="position: relative"><div class="CodeMirror-gutter" style="height: 0px;"><div class="CodeMirror-gutter-text"><pre>&nbsp;1<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; margin-left: 0px;"><div style="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden;"><pre><span>x</span></pre></div><pre class="CodeMirror-cursor">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden">&nbsp;</pre><div style="position: relative; z-index: -1"></div><div></div></div></div></div></div></div></div>
+
+
+<textarea id="hidden_code" name="code">
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+
+String sql = "select * from users where (email ='" + email +"' and password ='" + password + "')";
+
+Connection connection = pool.getConnection();
+Statement statement = connection.createStatement();
+ResultSet result = statement.executeQuery(sql);
+
+if (result.next()) {
+loggedIn = true;
+	# Successfully logged in and redirect to user profile page
+} else {
+
+	# Auth failure - Redirect to Login Page
+}
+@@@
+
+moveTo: 0:0
+
+type: { text: "//" }
+
+moveTo: 1:0
+
+type: { text: "//" }
+
+moveTo: 5:0
+
+type: { text: "//" }
+
+moveTo: 6:0
+
+type: { text: "//" }
+
+moveTo: 7:0
+
+type: { text: "//" }
+
+moveTo: 9:0
+
+type: { text: "//" }
+
+moveTo: 10:0
+
+type: { text: "//" }
+
+moveTo: 11:0
+
+type: { text: "//" }
+
+moveTo: 12:0
+
+type: { text: "//" }
+
+moveTo: 14:0
+
+type: { text: "//" }
+
+moveTo: 15:0
+
+type: { text: "//" }
+
+moveTo: 3:0
+
+showTooltip: { text: "Now that we have simplified our authentication logic code, let's analyze the SQL query generated by TradePORTAL to validate &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; authentication credentials.&lt;br/&gt;&lt;br&gt;&lt;button class=\"blue-button-small\" style=\"float: right;\" onclick=\"window.hideTooltip(); $(\'#blue-seven\').show();\"&gt;Close&lt;/button&gt;", pos: "3:8" }
+
+</textarea>
+
+<textarea id="vuln_code" name="code">
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+
+String sql = "select * from users where (email ='" + email +"' and password ='" + password + "')";
+
+Connection connection = pool.getConnection();
+Statement statement = connection.createStatement();
+ResultSet result = statement.executeQuery(sql);
+
+if (result.next()) {
+loggedIn = true;
+	# Successfully logged in and redirect to user profile page
+} else {
+
+	# Auth failure - Redirect to Login Page
+}
+@@@
+
+wait: 500
+
+moveTo: 0:0
+
+label: CM002-01
+
+showTooltip: { text: "To quickly recap, the &lt;code&gt;request.getParameter()&lt;/code&gt; method is first called to extract &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; username and password values which are assigned to the &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; variable.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\"&gt;Next&lt;/button&gt;" , pos: "0:9"}
+
+pause
+
+moveTo: 3:0
+
+label: CM002-02
+
+showTooltip: { text: "The string variable &lt;code&gt;sql&lt;/code&gt; is then declared, which represents the SQL query used to authenticate  &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; credentials.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM002-01\" &gt;Back&lt;/button&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\" &gt;Next&lt;/button&gt;", pos: "3:8" }
+
+pause
+
+moveTo: 3:0
+
+label: CM002-03
+
+showTooltip: { text: "Notice that &lt;span class=\"vuln_browser\"&gt;Alice's&lt;/span&gt; &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; input (retrieved using the &lt;code&gt;request.getParameter()&lt;/code&gt; method) are concatenated within the variable &lt;code&gt;sql&lt;/code&gt;, without any input validation checks.&lt;br&gt;&lt;br&gt;Because there is no input validation (i.e. no checking of legal characters, minimum/maximum string lengths, or removal of \"malicious\" characters) &lt;span class=\"vuln_browser\"&gt;Alice&lt;/span&gt; has the ability to inject raw SQL syntax within the username and password input fields to alter the meaning of the underlying SQL query responsible for authentication, resulting in a bypass of the application's authentication mechanism ... a SQL Injection attack!&lt;br/&gt;&lt;br&gt;&lt;button class=\"blue-button-small\" style=\"float: left;\" data-label=\"CM002-02\"&gt;Back&lt;/button&gt;&lt;button class=\"blue-button-small\" style=\"float: right;\" data-label=\"stop\"  onclick=\"$(\'#blue-ten\').show();\"&gt;Understood&lt;/button&gt;", pos: "3:87" }
+
+pause
+
+</textarea>
+
+<textarea id="fix_code" name="code">
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+
+String sql = "select * from users where (email ='" + email +"' and password ='" + password + "')";
+
+Connection connection = pool.getConnection();
+Statement statement = connection.createStatement();
+ResultSet result = statement.executeQuery(sql);
+
+if (result.next()) {
+loggedIn = true;
+	# Successfully logged in and redirect to user profile page
+} else {
+
+	# Auth failure - Redirect to Login Page
+}
+@@@
+
+moveTo: 3:0
+
+type: { text: "//" }
+
+moveTo: 4:0
+
+type: { text: "String sql = \"select * from users where email = ? and password = ? \";" }
+
+run: {command: "newlineAndIndent", times: 2}
+
+moveTo: 8:0
+
+type: { text: "//" }
+
+moveTo: 9:0
+
+run: {command: "newlineAndIndent", times: 2}
+
+moveTo: 9:0
+
+type: { text: "PreparedStatement preparedStatement = connection.prepareStatement(sql);" }
+
+moveTo: 11:0
+
+type: { text: "//" }
+
+moveTo: 12:0
+
+run: {command: "newlineAndIndent", times: 2}
+
+moveTo: 13:0
+
+type: { text: "preparedStatement.setString(1, email);" }
+
+moveTo: 14:0
+
+type: { text: "preparedStatement.setString(2, password);" }
+
+moveTo: 15:0
+
+run: {command: "newlineAndIndent", times: 3}
+
+moveTo: 16:0
+
+type: { text: "ResultSet result = preparedStatement.executeQuery();" }
+
+moveTo: 4:0
+
+label: CM003-01
+
+showTooltip: { text: "In our modified code example, we first declare the authentication query string and assign it to the &lt;code&gt;sql&lt;/code&gt; string variable. Notice that the &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; variable have now been replaced with &lt;code&gt;?&lt;/code&gt; symbol which act as a place holder for Java's &lt;code&gt;PreparedStatement&lt;/code&gt; class.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\"&gt;Next&lt;/button&gt;", pos: "4:8" }
+
+pause
+
+moveTo: 9:0
+
+label: CM003-02
+
+showTooltip: { text: "The &lt;code&gt;sql&lt;/code&gt; string variable is then passed as an argument to the &lt;code&gt;prepareStatement()&lt;/code&gt; method, which precompiles the SQL query and creates a &lt;code&gt;PreparedStatement&lt;/code&gt; object for sending paramterized SQL statements to the back end SQL server.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM003-01\" &gt;Back&lt;/button&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\" &gt;Next&lt;/button&gt;", pos: "9:27" }
+
+pause
+
+moveTo: 13:0
+
+label: CM003-03
+
+showTooltip: { text: "The &lt;code&gt;setString()&lt;/code&gt; method is then called to pass the &lt;code&gt;email&lt;/code&gt; parameter value to our prepared statement. This function takes two arguments, the position index of our placeholder denoted by &lt;code&gt;?&lt;/code&gt; and the parameter value stored in the &lt;code&gt;email&lt;/code&gt; variable.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM003-02\" &gt;Back&lt;/button&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\" &gt;Next&lt;/button&gt;", pos: "13:22" }
+
+pause
+
+moveTo: 14:0
+
+label: CM003-04
+
+showTooltip: { text: "Similarly, the &lt;code&gt;setString()&lt;/code&gt; method is then called to pass the &lt;code&gt;password&lt;/code&gt; parameter value to our prepared statement.&lt;br/&gt;&lt;br&gt;&lt;button class=\"orange-button-small\" data-label=\"CM003-03\" &gt;Back&lt;/button&gt;&lt;button class=\"orange-button-small\" style=\"float: right;\"  data-label=\"play\" &gt;Next&lt;/button&gt;", pos: "14:19" }
+
+
+pause
+
+moveTo: 16:0
+
+label: CM003-05
+
+showTooltip: { text: "Finally, we execute our authentication query by invoking the &lt;code&gt;preparedStatement.executeQuery()&lt;/code&gt; method. The SQL used by &lt;code&gt;PreparedStatement&lt;/code&gt; is precompiled ensuring that all parameters sent to the underlying database are treated as literal values and not SQL statement/query language, ensuring that no SQL code can be injected using an untrusted parameter.&lt;br&gt;&lt;br&gt;Ultimately, the security payoff with using prepared statements is that the database will ensure the parameters are automatically escaped.&lt;br/&gt;&lt;br&gt;&lt;button class=\"blue-button-small\" style=\"float: left;\" data-label=\"CM003-04\"&gt;Back&lt;/button&gt;&lt;button class=\"blue-button-small\" style=\"float: right;\" data-label=\"stop\"  onclick=\"$(\'#blue-eleven\').show();\"&gt;Understood&lt;/button&gt;", pos: "16:44" }
+
+pause
+
+</textarea>
+
+
+
+
+					</div>
+
+
+
+				</div>
+
+				<!-- DYNAMIC CODE SECTION END -->
+
+			<div id="" class="ui-layout-resizer ui-layout-resizer-north ui-layout-resizer-open ui-layout-resizer-north-open ui-draggable-disabled ui-state-disabled" title="" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: default; top: 571px; display: none;" aria-disabled="true"><div id="" class="ui-layout-toggler ui-layout-toggler-north ui-layout-toggler-open ui-layout-toggler-north-open" title="Close" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible;"><span class="content content-open" style="display: block;"><div class="btnExpand"></div><div class="btnReset"></div></span><span class="content content-closed" style="display: none;"><div class="btnExpand"></div><div class="btnReset"></div></span></div></div><div id="" class="ui-layout-resizer ui-layout-resizer-west ui-layout-resizer-closed ui-layout-resizer-west-closed ui-draggable-disabled" title="Slide Open" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: pointer; left: 0px; display: none;" aria-disabled="true"><div id="" class="ui-layout-toggler ui-layout-toggler-west ui-layout-toggler-closed ui-layout-toggler-west-closed" title="Open" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible;"></div></div></div>
+
+			<div id="form_notice">
+
+			<table>
+			<tbody><tr>
+
+			    <td>Well done ! </td>
+			    <td><button class="btn-s btn-block-s btn-lg-s btn-success-s" onclick="location.reload();" style="height: 32px; line-height: 0px; font-size: 14px; padding 0px; border-color: #27AE60; margin-left: 10px;" id="beta_form">
+					Play Again ?
+				</button>
+
+				</td>
+
+				<td style="padding-left: 10px;"><button class="btn-s btn-block-s btn-lg-s btn-success-s" onclick="location.href = &#39;/#democomplete&#39;;" style="height: 32px; line-height: 0px; font-size: 14px; padding 0px; border-color: #27AE60; margin-left: 10px;" id="beta_form">
+					Return To Site
+				</button>
+
+				</td>
+
+
+
+				<td class="vote-button" style="padding-left: 10px;">
+
+				<button class="btn-r btn-block-r btn-lg-r btn-success-r" style="height: 32px; line-height: 0px; font-size: 14px; padding 0px; border-color: #3498db; margin-left: 10px;" onclick="mixpanel.track(window.location.pathname, { &#39;like&#39;:&#39;1&#39; }); $(&#39;.vote-button&#39;).fadeOut(&#39;fast&#39;);" id="like"></button>
+
+				</td>
+
+
+				<td class="vote-button" style="padding-left: 10px;">
+
+				<button class="btn-r btn-block-r btn-lg-r btn-success-r" style="height: 32px; line-height: 0px; font-size: 14px; padding 0px; border-color: #3498db; margin-left: 10px; background-color: #e74c3c;" onclick="mixpanel.track(window.location.pathname, { &#39;dislike&#39;:&#39;1&#39; }); $(&#39;.vote-button&#39;).fadeOut(&#39;fast&#39;);" id="dislike"></button>
+
+				</td>
+
+
+  			</tr>
+  			</tbody></table>
+
+			<!-- </div> -->
+
+		</div>
+
+<link href="./Codebashing_files/common-after-9b576b2e0fbe6cd67141006b30214a23.css" media="screen" rel="stylesheet">
+
+
+
+
+
+
+ <div id="modal2" style="display: none; position: fixed; z-index: 0; left: 50%; top: 100px;">
+          <div class="header">
+            <h3>Sales Form</h3>
+          </div>
+
+          <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" id="sf_contact_form">
+          		<br>
+                <input type="hidden" name="oid" value="00D24000000eBxj">
+
+                <input type="hidden" name="Campaign_ID" value="701240000001egoAAA">
+                
+                <input type="hidden" name="retURL" value="https://codebashing.com/thank-you">
+
+
+                <div class="txt"><input id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="First Name" class="form-control">
+                </div><br>
+
+                <div class="txt">
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text" placeholder="Last Name" class="form-control">
+                </div><br>
+
+                <div class="txt">
+                <input id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="Phone Number" class="form-control">
+                </div><br>
+
+                <div class="txt">
+                <input id="email" maxlength="80" name="email" size="20" type="text" placeholder="Please supply a corporate email address ..." class="form-control">
+                </div><br>
+
+                <div class="txt">
+                <input id="company" maxlength="40" name="company" size="20" type="text" placeholder="Company Name" class="form-control">
+                </div><br>
+
+                <div class="txt">
+                <label style="padding-right: 10px">Developer Count:</label><select id="00N2400000IGW0n" name="00N2400000IGW0n" title="DeveloperCount"><option value="">--None--</option>
+                <option value="1-10">1-10</option>
+                <option value="11-50">11-50</option>
+                <option value="100-249">100-249</option>
+                <option value="250-499">250-499</option>
+                <option value="500-999">500-999</option>
+                <option value="1000+">1000+</option>
+                <option value="5000+">5000+</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+                </select><br>
+
+                <br><label style="padding-right: 10px">Are you a:</label><select id="00N2400000DSyT0" name="00N2400000DSyT0" title="isEmployeeOrStudent"><option value="">--None--</option><option value="Employee">Business</option>
+                <option value="Student">Student</option>
+                </select>
+                <label style="padding-right: 10px">I'd like an evaulation for my organization:</label><input id="00N2400000IGW46" name="00N2400000IGW46" type="checkbox" value="1"><br>
+                </div><br>
+                <div class="btnx clearfix" style="cursor:none">
+                <input type="submit" name="submit" class="close_button" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Exercise Sales Form&#39;, &#39;Click&#39;, &#39;Sumbit&#39;);">
+                </div>
+                
+
+                </form>
+
+
+         
+        </div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49495799-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d041b31507b8383f61bb4282406b8dc3");</script><!-- end Mixpanel -->
+
+<script type="text/javascript">
+mixpanel.track(window.location.pathname, {'pageload' : '1', 'completed' : '0', 'like' : '0', 'dislike' : '0'});
+</script>
+
+<script type="text/javascript">
+	
+	$('#modal2').easyModal({
+      top: 100,
+      overlay : 0.4,
+      overlayClose: true,
+      closeOnEscape: true
+    });
+</script>
+
+
+
+
+
+
+</div><div class="lean-overlay" style="display: none; position: fixed; z-index: 0; top: 0px; left: 0px; height: 100%; width: 100%; background: rgb(0, 0, 0); opacity: 0.5; overflow: auto;"></div><div id="ascrail2000" class="nicescroll-rails" style="width: 7px; z-index: auto; cursor: default; position: absolute; top: 41px; left: 293px; height: 572px; opacity: 1; display: none;"><div style="position: relative; top: 0px; float: right; width: 7px; height: 0px; background-color: rgb(153, 153, 153); background-clip: padding-box; border-radius: 3px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 7px; z-index: auto; top: 606px; left: 0px; position: absolute; opacity: 1; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 7px; width: 0px; background-color: rgb(153, 153, 153); background-clip: padding-box; border-radius: 3px; left: 0px;"></div></div></body></html>

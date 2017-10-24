@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://trade-portal.codebashing.com/logger -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<script>
+			document.domain = 'codebashing.com';
+
+		</script>
+		<title>Codebashing Logger version 1.0</title>
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+		<link rel="stylesheet" type="text/css" href="./styles.css">
+		<script type="text/javascript" src="./jquery.min.js(1).download"></script>
+		<script type="text/javascript" src="./jquery.nicescroll.min.js(1).download"></script>
+
+	</head>
+	<body style="overflow-y: hidden;">
+		<h2 class="ontop">Server Logs</h2>
+		<br>
+		<h4 class="ontop">The live log pane displays real time SQL debug logs for the <span style="color: #D14836; font-family: Helvetica, Arial, sans-serif !important;">vulnerable application</span></h4>
+		<h4></h4>
+		<div id="overlayfront">
+			<!-- </br>
+			</br> <h1>Server Logs</h1>
+			</br> <h4>The live log pane displays real time SQL debug logs for the <span style="color: #D14836;">vulnerable application</span></h4>
+		 --></div>
+		<pre class="log"></pre>
+		<script type="text/javascript" src="./socket.io.js.download"></script>
+		<script type="text/javascript" src="./app.js.download"></script>
+		<script type="text/javascript">
+			window.load = App.init({
+				container : document.getElementsByClassName('log')[0],
+			});
+
+		</script>
+		
+		<script>
+						$(document).ready(function() {
+				
+				
+
+				$('body').niceScroll({
+					autohidemode : 'false', // Do not hide scrollbar when mouse out
+					cursorborderradius : '3px', // Scroll cursor radius
+					background : '#333333'  , // The scrollbar rail color
+					cursorwidth : '7px', // Scroll cursor width
+					cursorcolor : '#999999', // Scroll cursor color
+					cursorborderradius : "3px",
+					cursorborder: { border: 'none'},
+					horizrailenabled: false
+				});
+
+			});
+			
+			//help_show();
+
+			function blonker() {
+
+				$('body').niceScroll(
+					
+					// {
+					// // autohidemode : 'false', // Do not hide scrollbar when mouse out
+					// cursorborderradius : '0px', // Scroll cursor radius
+					// background : '#E5E9E7', // The scrollbar rail color
+					// cursorwidth : '10px', // Scroll cursor width
+					// cursorcolor : '#999999', // Scroll cursor color
+					// horizrailenabled: false
+				// }
+				
+				).resize();
+
+			}
+
+
+		$(window).load(function() {
+			
+			$('.line').css("font-family", "monospace");
+		});
+
+		$(window).load(function() {
+
+			setInterval(function(){ 
+			    $(".line:hidden").remove();    
+			}, 5000);
+
+
+		});
+
+
+		$(document).ready(function() {
+
+			window.clearlog = function clearlog() {
+
+				$('.line').remove();
+			}
+
+		});
+
+		
+		</script>
+		
+	
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 7px; z-index: auto; background: rgb(51, 51, 51); cursor: default; position: fixed; top: 0px; height: 100%; right: 0px;"><div style="position: relative; top: 0px; float: right; width: 7px; height: 32px; background-color: rgb(153, 153, 153); background-clip: padding-box; border-radius: 3px;"></div></div></body></html>
