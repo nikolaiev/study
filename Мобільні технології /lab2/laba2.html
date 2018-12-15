@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>laba2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="flows.js">
+		
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/alertify.min.css">
+	<script type="text/javascript" src="alertify.min.js"></script>
+</head>
+<body onload="checkFileAPI();">
+	<div class="cardFlex fullWidth fullHeight columnOrder" id='menu'>
+
+	</div>
+	<div class="cardFlex fullWidth fullHeight columnOrder" id='editor'>
+		
+		<div class="cardGap5 cardFlex">
+			<div class="cardFlex cardGap5 centerFlex">
+				<svg class='cardGap width100 height100' id='editorPlot' style='background-color:#BAE4F7' onclick="place(event)">
+					<defs>
+						<marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+							<path d="M0,0 L0,6 L9,3 z" fill="#f00" />
+						</marker>
+						<marker id="MarkerCircle"  markerWidth="8" markerHeight="8" refX="5" refY="5" >
+        <circle cx="5" cy="5" r="1" style="stroke: none; fill:#000000;"/>
+					</defs>
+				  <path id='editorMap' d="" fill='none' stroke='red' stroke-width='1'/>
+				</svg>
+			</div>
+		</div>
+		<div class=" cardFlex justifyAround" style="height: 50px"> 
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="placeArrow()"><span class="cardGap cardFlex centerFlex">
+				Add flow
+			</span></button>
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="placeCancel()"><span class="cardGap cardFlex centerFlex">
+				Create new map
+			</span></button>
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="placeOil()"><span class="cardGap cardFlex centerFlex">
+				Add oil
+			</span></button>
+		</div>
+		<div class=" cardFlex justifyAround" style="height: 50px"> 
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="switchTab('map')"><span class="cardGap cardFlex centerFlex">
+				To map
+			</span></button>
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="download()"><span class="cardGap cardFlex centerFlex">
+				Save map
+			</span></button>
+		</div>
+	</div>
+	<div class="cardFlex fullWidth fullHeight columnOrder" id='map'>
+		
+		<div class="cardGap5 cardFlex">
+			<div class="cardFlex cardGap5 centerFlex">
+				<svg class='cardGap width100 height100' id='svgPlot' style='background-color:#BAE4F7'>
+					<defs>
+						<marker id="arrow1" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+							<path d="M0,0 L0,6 L9,3 z" fill="#f00" />
+						</marker>
+						<marker id="arrow2" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+							<path d="M0,0 L0,6 L9,3 z" fill="#f0f" />
+						</marker>
+						<marker id="MarkerCircle"  markerWidth="8" markerHeight="8" refX="5" refY="5" >
+        <circle cx="5" cy="5" r="1" style="stroke: none; fill:#000000;"/>
+				      </marker>
+					</defs>
+				  <path id='plot' d="" fill='none' stroke='red' stroke-width='1'/>
+				</svg>
+				<svg class='cardGap width100 height100' id='svgPlot1' viewbox='0 0 800 600' style='background-color:#BAE4F7' display='none'>
+				  <path id='plot1' d="" fill='none' stroke='red' stroke-width='1'/>
+				</svg>
+			</div>
+		</div>
+
+		<div class="">
+			<div class="cardGap cardFlex centerFlex height100" style="height: 50px" >
+				<button type="button" name="button" class="cardGap height100" onclick="prevStep()" id='stopButton'><span>Stop</span></button>
+				<!-- <button type="button" name="button" class="cardGap height100" onclick="toggleSection()" id='stopButton'><span>Toggle Section</span></button> -->
+				<button type="button" name="button" class="cardGap height100" onclick="nextStep()"><span>Start</span></button>
+			</div>
+		</div>
+		<div class=" cardFlex justifyAround" style="height: 50px" > 
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="switchTab('editor')"><span class="cardGap cardFlex centerFlex">
+				To editor
+			</span></button>
+			<!-- <button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="loadMap()"><h1 class="cardGap cardFlex centerFlex">
+				Load map
+			</h1></button> -->
+			<button class="cardGap cardFlex centerFlex" type="button" name="button" onclick="placeOil()">
+				<input class="cardGap cardFlex centerFlex" type="file" onchange='readText(this)' />
+			</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js">
+		
+	</script>
+</body>
+</html>

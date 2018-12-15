@@ -1,0 +1,64 @@
+ {
+			margin:0;
+			padding: 0;
+			border: 0;
+		}
+		.cardFlex {
+			display: flex;
+		}
+		.fullWidth {
+			width: 100vw;
+		}
+		.fullWidthX2 {
+			width: 200vw;
+		}
+		.fullHeight {
+			height: 100vh;
+		}
+		.cardGap {
+			flex:1;
+		}
+		.cardGap2 {
+			flex:2;
+		}
+		.cardGap3 {
+			flex:3;
+		}
+		.cardGap4 {
+			flex:4;
+		}
+		.cardGap5 {
+			flex:5;
+		}
+		.centerFlex {
+			align-items: center;
+			justify-content: center;
+		}
+		.cardPlot {
+			background-color: #35f;
+		}
+		.cardSvg {
+			/*background-color: #f35;*/
+		}
+		.width100 {
+			width: 100%;
+		}
+		.height100{
+			height:100%;
+		}
+		.columnOrder {
+			flex-direction: column;
+		}
+		.justifyAround {
+			justify-content: space-around;
+		}
+		button {
+			background-color: #5af;
+		}
+		button:hover {
+			background-color: #6cf;
+		}
+		body {
+			background-color: #5a5;
+    margin: 0px;
+		}
